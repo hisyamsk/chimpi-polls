@@ -16,11 +16,4 @@
     grid-gap: 20px;
     text-align: center;
   }
-
-  @media (max-width: 750px) {
-    .poll-list {
-      grid-template-columns: 1fr;
-      padding: 0 30px;
-    }
-  }
 </style>
