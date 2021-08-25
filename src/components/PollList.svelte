@@ -1,30 +1,11 @@
 <script>
-  /* import { onMount, onDestroy } from "svelte"; */
-  import PollStore from "../store/PollStore";
   import PollDetails from "./PollDetails.svelte";
-  import { fade } from "svelte/transition";
-  import { flip } from "svelte/animate";
-  /* export let polls = []; */
-
-  /* const unsub = PollStore.subscribe((data) => { */
-  /*   polls = data; */
-  /* }); */
-
-  /* onMount(() => { */
-  /*   console.log("component mounted"); */
-  /* }); */
-
-  /* onDestroy(() => { */
-  /*   console.log("component destroyed"); */
-  /*   unsub(); */
-  /* }); */
+  export let polls = [];
 </script>
 
 <div class="poll-list">
-  {#each $PollStore as poll (poll.id)}
-    <div in:fade out:fade|local animate:flip={{ duration: 500 }}>
-      <PollDetails {poll} />
-    </div>
+  {#each polls as poll (poll.id)}
+    <PollDetails {poll} on:vote />
   {/each}
 </div>
 
